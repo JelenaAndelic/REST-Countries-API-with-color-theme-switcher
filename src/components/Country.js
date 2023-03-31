@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Country = ({ flag, name, population, region, capital }) => {
   return (
     <Link to={`/${name}`}>
-      <article className="country-card">
+      <div className="country-card">
         <img className="country-card__img" src={flag} alt="Flag image" />
         <footer className="description">
           <h3>{name}</h3>
@@ -19,7 +19,7 @@ const Country = ({ flag, name, population, region, capital }) => {
             <span className="strong">Capital: </span> {capital}
           </p>
         </footer>
-      </article>
+      </div>
     </Link>
   );
 };
