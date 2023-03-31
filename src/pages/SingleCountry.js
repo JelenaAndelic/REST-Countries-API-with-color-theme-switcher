@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Loading from "../components/Loading";
 import { useParams, Link } from "react-router-dom";
 import { useGlobalContext } from "../context";
 import { FaLongArrowAltLeft } from "react-icons/fa";
@@ -7,8 +6,6 @@ import { FaLongArrowAltLeft } from "react-icons/fa";
 const SingleCountry = ({}) => {
   const { countries } = useGlobalContext();
   const { name } = useParams();
-  const [loading, setLoading] = useState(false);
-  const [country, setCountry] = useState(null);
 
   return (
     <div className="single-page">
@@ -78,11 +75,11 @@ const SingleCountry = ({}) => {
                       </p>
                     </div>
                   </div>
-                  {borders && (
-                    <div className="country-border">
-                      <div className="bordert-title strong">
-                        Border Countries:{" "}
-                      </div>
+                  <div className="country-border">
+                    <div className="bordert-title strong">
+                      Border Countries:{" "}
+                    </div>
+                    {borders ? (
                       <div className="btn-container">
                         {borders.map((border, index) => {
                           return (
@@ -92,8 +89,10 @@ const SingleCountry = ({}) => {
                           );
                         })}
                       </div>
-                    </div>
-                  )}
+                    ) : (
+                      <p>This country does not have a neighbors.</p>
+                    )}
+                  </div>
                 </article>
               </main>
             );

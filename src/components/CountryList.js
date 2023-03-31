@@ -6,9 +6,9 @@ import { useGlobalContext } from "../context";
 const CountryList = () => {
   const { loading, countries } = useGlobalContext();
 
-  // if (loading) {
-  //   return <Loading />;
-  // }
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <section className="container">

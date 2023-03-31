@@ -1,7 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import { useGlobalContext } from "../context";
 import Select from "react-select";
-import { FaSearch } from "react-icons/fa";
 
 const SearchForm = () => {
   const {
@@ -19,28 +18,13 @@ const SearchForm = () => {
     searchValue.current.focus();
   }, []);
 
-  const searchCountries = (e) => {
+  const searchCountries = () => {
     setSearchTerm(searchValue.current.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
   };
-
-  // const [searchValue, setSearchValue] = useState(() => {
-  //   const saved = localStorage.getItem("searchValue");
-  //   const initialValue = JSON.parse(saved);
-  //   return initialValue || "";
-  // });
-
-  // const searchCountries = (e) => {
-  //   setSearchValue(e.target.value);
-  //   setSearchTerm(JSON.parse(localStorage.getItem("searchValue")));
-  // };
-
-  // useEffect(() => {
-  //   localStorage.setItem("searchValue", JSON.stringify(searchValue));
-  // }, [searchValue]);
 
   return (
     <section className="search">
@@ -52,9 +36,8 @@ const SearchForm = () => {
             type="text"
             id="name"
             placeholder=" &#xF002;    Search for a country..."
-            // value={searchValue}
             ref={searchValue}
-            // onChange={searchCountries}
+            value={searchTerm}
             onChange={searchCountries}
           />
         </div>
@@ -64,19 +47,10 @@ const SearchForm = () => {
           styles={{
             control: (baseStyles, state) => ({
               ...baseStyles,
-              // borderColor:
-              //   theme === "dark" ? "hsl(207, 26%, 17%)" : "hsl(0, 0%, 98%)",
               borderColor:
                 theme === "dark" ? "hsl(207, 26%, 17%)" : "hsl(0, 0%, 98%)",
               backgroundColor:
-                // borderColor: state.isFocused ? "yellow" : "green",
                 theme === "dark" ? "hsl(209, 23%, 22%)" : "hsl(0, 0%, 100%)",
-              // outline: "none",
-              // borderColor: state.isFocused ? "white" : "#42f58a",
-              // "&:hover": {
-              //   // Overwrittes the different states of border
-              //   borderColor: state.isFocused ? "red" : "blue",
-              // },
             }),
             placeholder: (provided) => ({
               ...provided,

@@ -10,8 +10,8 @@ function App() {
   const { theme } = useGlobalContext();
   return (
     <div id={theme} className="app">
+      <Navbar />
       <Router>
-        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/:name" element={<SingleCountry />} />

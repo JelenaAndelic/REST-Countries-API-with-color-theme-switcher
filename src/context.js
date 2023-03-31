@@ -6,7 +6,7 @@ const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
-  const [countries, setCountries] = useState(data);
+  const [countries, setCountries] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   const [option, setOption] = useState(
     allRegions.map((item) => ({
@@ -27,19 +27,20 @@ const AppProvider = ({ children }) => {
   }
 
   useEffect(() => {
+    setLoading(true);
     if (!selectedOption || selectedOption.value === "All") {
       let updatedList = [...data];
       updatedList = updatedList.filter((country) =>
         country.name.toLowerCase().includes(searchTerm.toLowerCase())
       );
       setCountries(updatedList);
-    } else if (selectedOption.value === "All") {
-      setCountries(data);
+      setLoading(false);
     } else {
       const filteredList = data.filter(
         (country) => country.region === selectedOption.value
       );
       setCountries(filteredList);
+      setLoading(false);
 
       let updatedList = [...filteredList];
       updatedList = updatedList.filter((country) =>
@@ -49,17 +50,10 @@ const AppProvider = ({ children }) => {
     }
   }, [selectedOption, searchTerm]);
 
-  // useEffect(() => {
-  //   let updatedList = [...data];
-  //   updatedList = updatedList.filter((country) =>
-  //     country.name.toLowerCase().includes(searchTerm.toLowerCase())
-  //   );
-  //   setCountries(updatedList);
-  // }, [searchTerm]);
-
   return (
     <AppContext.Provider
       value={{
+        searchTerm,
         loading,
         countries,
         setSearchTerm,
