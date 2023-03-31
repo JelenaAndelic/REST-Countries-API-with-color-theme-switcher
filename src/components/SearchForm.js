@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect } from "react";
 import { useGlobalContext } from "../context";
 import Select from "react-select";
 
@@ -30,8 +30,8 @@ const SearchForm = () => {
     <section className="search">
       <form onSubmit={handleSubmit}>
         <div className="search-container">
-          <label htmlFor="name"></label>
           <input
+            aria-label="Search"
             className="search-input"
             type="text"
             id="name"

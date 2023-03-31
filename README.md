@@ -31,7 +31,7 @@ Users should be able to:
 ![Desktop Screenshot Light](./src/screenshots/desktop_light.png)
 ![Desktop Screenshot Dark](./src/screenshots/desktop_dark.png)
 ![Desktop Screenshot Single Light](./src/screenshots/single_page_light.png)
-![Desktop Screenshot Single Dark](./src/screenshots/mobile_single_page_dark.png)
+![Desktop Screenshot Single Dark](./src/screenshots/_single_page_dark.png)
 ![Mobile Screenshot Light](./src/screenshots/mobile_light.png)
 ![Mobile Screenshot Dark](./src/screenshots/mobile_dark.png)
 ![Mobile Screenshot Single Light](./src/screenshots/mobile_single_page_light.png)
